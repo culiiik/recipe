@@ -7,12 +7,16 @@ zerops:
       os: ubuntu
       base:  ubuntu@22.04
       prepareCommands:
+        - sudo mkdir -p /etc/apt/keyrings
+        - sudo curl -L -o /etc/apt/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+        - echo "deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
         - sudo apt-get -y update
-        - sudo apt-get -y upgrade
+        - sudo apt-get install syncthing
 
 
       ports:
-        - port: 8080
+        - port: 8384
           httpSupport: true
   
-      start: while true; do sleep 10000; done
+      #start: while true; do sleep 10000; done
+      start: sudo syncthing
