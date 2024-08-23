@@ -1,0 +1,18 @@
+zerops:
+  - setup: recipe
+    build:
+      deployFiles: [.]
+
+    run:
+      os: ubuntu
+      base:  ubuntu@22.04
+      prepareCommands:
+        - sudo apt-get -y update
+        - sudo apt-get -y upgrade
+
+
+      ports:
+        - port: 8080
+          httpSupport: true
+  
+      start: while true; do sleep 10000; done
