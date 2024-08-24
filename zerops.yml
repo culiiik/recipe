@@ -7,16 +7,16 @@ zerops:
       os: ubuntu
       base:  ubuntu@22.04
       prepareCommands:
-        - curl -L https://packages.rundeck.com/pagerduty/rundeckpro/gpgkey | sudo apt-key add -
-        - deb https://packages.rundeck.com/pagerduty/rundeckpro/any/ any main
-        - deb-src https://packages.rundeck.com/pagerduty/rundeckpro/any/ any main
+        - sudo curl -fsSL https://packages.rundeck.com/pagerduty/rundeck/gpgkey | sudo tee /etc/apt/trusted.gpg.d/rundeck-key.asc && chown root:root /etc/apt/trusted.gpg.d/rundeck-key.asc && chmod 644 /etc/apt/trusted.gpg.d/rundeck-key.asc
+        - sudo deb https://packages.rundeck.com/pagerduty/rundeckpro/any/ any main
+        - sudo deb-src https://packages.rundeck.com/pagerduty/rundeckpro/any/ any main
         - sudo apt-get update
         - sudo apt-get install rundeckpro-enterprise
 
 
 
       ports:
-        - port: 80
+        - port: 4440
           httpSupport: true
   
       start: while true; do sleep 10000; done
