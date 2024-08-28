@@ -7,16 +7,12 @@ zerops:
       os: ubuntu
       base:  ubuntu@22.04
       prepareCommands:
-        - sudo curl -fsSL https://packages.rundeck.com/pagerduty/rundeck/gpgkey | sudo tee /etc/apt/trusted.gpg.d/rundeck-key.asc && chown root:root /etc/apt/trusted.gpg.d/rundeck-key.asc && chmod 644 /etc/apt/trusted.gpg.d/rundeck-key.asc
-        #- sudo deb https://packages.rundeck.com/pagerduty/rundeckpro/any/ any main
-        #- sudo deb-src https://packages.rundeck.com/pagerduty/rundeckpro/any/ any main
-        #- sudo apt-get update
-        #- sudo apt-get install rundeckpro-enterprise
+        - wget https://github.com/medama-io/medama/releases/download/v0.4.4/medama-v0.4.4-linux-amd64.zip
 
 
 
       ports:
-        - port: 4440
+        - port: 8080
           httpSupport: true
   
       start: while true; do sleep 10000; done
