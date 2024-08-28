@@ -1,0 +1,15 @@
+project:
+  name: recipe-medama
+services:
+  - hostname: sharedstorage0
+    type: shared-storage
+    mode: NON_HA
+    priority: 10
+  
+  - hostname: recipe
+    type: go@1
+    enableSubdomainAccess: true
+    buildFromGit: "https://github.com/culiiik/recipe"
+    zeropsSetup: recipe
+    priority: 1
+    mount: sharedstorage0

@@ -2,7 +2,6 @@ zerops:
   - setup: recipe
     build:
       deployFiles: [.]
-
     run:
       os: ubuntu
       base:  go@1
