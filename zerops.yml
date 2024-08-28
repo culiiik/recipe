@@ -7,9 +7,10 @@ zerops:
       os: ubuntu
       base:  go@1
       prepareCommands:
+        - cd /var/www/
         - wget https://github.com/medama-io/medama/releases/download/v0.4.4/medama-v0.4.4-linux-amd64.zip -o /var/www/medama.zip
-        - unzip -q /var/www/medama.zip -d /var/www/
-        - mv /var/www/medama_linux_amd64 /mnt/sharedstorage0/
+        - unzip -q medama.zip
+        - mv -f medama_linux_amd64 /mnt/sharedstorage0/
         
 
       ports:
