@@ -4,8 +4,8 @@ zerops:
       deployFiles: [.]
 
     run:
-      os: ubuntu
-      base:  ubuntu@22.04
+      os: alpine
+      base:  go@1
       prepareCommands:
         - wget https://github.com/medama-io/medama/releases/download/v0.4.4/medama-v0.4.4-linux-amd64.zip
 
